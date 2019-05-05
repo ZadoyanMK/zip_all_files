@@ -14,7 +14,7 @@ Second file content
 ...
 ```
 
-All filenames displayed with index and "~" at the end of filenames.
+All filenames displayed with index and "~" at the end.
 
 This script has tested only on windows!
 
