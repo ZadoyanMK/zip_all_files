@@ -4,10 +4,10 @@ Script for groupping all text in all folder and subfolder in zip_result.txt
 Files are writing for next rule:
 
 ```
-path/to/first/filename ~
+path/to/first/filename
 First file content
 
-path/to/second/filename ~
+path/to/second/filename
 Second file content
 
 ...
