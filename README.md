@@ -23,10 +23,15 @@ Need python3
 
 ## Usage:
 
+```
 zip_all.py [-h] [--path PATH] [--symb SYMB] [--index]
+```
 
-optional arguments:
+Optional arguments:
+
+```
   -h, --help            show this help message and exit
   --path PATH, -p PATH  Base path
   --symb SYMB, -s SYMB  Symbol after filename at file
   --index, -i           Need index to each file?
+```
