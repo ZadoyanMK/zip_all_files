@@ -26,11 +26,9 @@ def check(path, symbol, is_index):
 
 
 if __name__=="__main__":
-    is_index = False
-    
     parser = argparse.ArgumentParser(description='Group all file contents to one file.')
     parser.add_argument('--path', '-p', type=str, help='Base path', default='./')
-    parser.add_argument('--symb', '-s', type=str, help='Symbol after filename at file', default='~')
+    parser.add_argument('--symb', '-s', type=str, help='Symbol after filename at file', default='')
     parser.add_argument('--index', '-i', help='Need index to each file?', default=False, action="store_true")
     args = parser.parse_args()
 
