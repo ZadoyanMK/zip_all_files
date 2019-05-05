@@ -1,31 +1,38 @@
-# zip_all_files
+import glob
+import sys
+import os
+import argparse
 
-Script for groupping all text in all folder and subfolder in zip_result.txt
 
-Files are writing for next rule:
+def check(path, symbol, is_index):
+    result_file = open('zip_result.txt', 'w+')
+    index = 0
 
-```
-1. path/to/first/filename ~
-First file content
+    for path, subdirs, files in os.walk(path):
+        for name in files:
+            index += 1
+            x = os.path.join(path, name).replace('\\', '/')
+            print(x)
+            if not x[2:] in ["zip_all.py", "zip_result"]:
+                with open(x) as f:
+                    file_ctx = f.read()
+                    if file_ctx:
+                        if is_index:
+                            result_file.write(f"\n{index}. {x[2:]} {symbol}\n")
+                        else:
+                            result_file.write(f"\n{x[2:]} {symbol}\n")
+                        result_file.write(f"{file_ctx}\n")
+    result_file.close()
 
-2. path/to/second/filename ~
-Second file content
 
-...
-```
+if __name__=="__main__":
+    is_index = False
+    
+    parser = argparse.ArgumentParser(description='Group all file contents to one file.')
+    parser.add_argument('--path', '-p', type=str, help='Base path', default='./')
+    parser.add_argument('--symb', '-s', type=str, help='Symbol after filename at file', default='~')
+    parser.add_argument('--index', '-i', help='Need index to each file?', default=False, action="store_true")
+    args = parser.parse_args()
 
-All filenames displayed with index and "~" at the end.
+    check(args.path, args.symb, args.index)
 
-This script has tested only on windows!
-
-## Requirements
-
-Need python3
-
-## Run:
-
-```
-python zip_all.py /base/path
-```
-
-Then find all text from files in zip_result.txt
