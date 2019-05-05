@@ -2,6 +2,20 @@
 
 Script for groupping all text in all folder and subfolder in zip_result.txt
 
+Files are writing for next rule:
+
+```
+1. path/to/first/filename ~
+First file content
+
+2. path/to/second/filename ~
+Second file content
+
+...
+```
+
+All filenames displayed with index and "~" at the end of filenames.
+
 This script has tested only on windows!
 
 ## Requirements
